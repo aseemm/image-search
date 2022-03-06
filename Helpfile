@@ -1,11 +1,8 @@
-To build a new react app, follow a two part process
+To build a new react app, follow a three part process
 
 1. Use create-react-app to generate a new project (called app), with a fake package.json
 Uncomment
 CMD ["npx", "create-react-app", "app"]
-Comment
-WORKDIR /src/app
-CMD ["npm", "start"]
 
 # build image
 docker build . -f Dockerfile -t myapp
@@ -13,10 +10,19 @@ docker build . -f Dockerfile -t myapp
 # create app scaffolding (wait until app created, "Happy Hacking")
 docker run --name myapp -v /Users/amaheshwari/Documents/Projects/image-search:/src -p 3000:3000 -d myapp
 
-2. Run the app in a container
-Comment
-CMD ["npx", "create-react-app", "app"]
-Unomment
+2. Install axios
+Uncomment
+WORKDIR /src/app
+CMD ["npm", "install", "axios", "--save"]
+
+# build image
+docker build . -f Dockerfile -t myapp
+
+# run app (wait until server up)
+docker run --name myapp -v /Users/amaheshwari/Documents/Projects/image-search:/src -p 3000:3000 -d myapp
+
+3. Run the app in a container
+Uncomment
 WORKDIR /src/app
 CMD ["npm", "start"]
 
