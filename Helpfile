@@ -45,3 +45,6 @@ docker exec -it myapp /bin/bash
 
 # Clean up
 docker stop myapp; docker rm myapp
+
+# Notes
+Image search from youtube
